@@ -7,6 +7,10 @@ int main() {
     std::cout << *p << std::endl;
     p++;
     std::cout << *p << std::endl;
+    *p = 14;
+    std::cout << *p << std::endl;
+    std::cout << Array[1] << std::endl;
 
     return 0;
 }
+
