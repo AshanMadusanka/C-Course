@@ -6,32 +6,58 @@ This is a **C++ Advance Course** learning project with a CMake-based build syste
 ## Build & Run
 
 ### Build System
-- **Tool**: CMake 3.31+
+- **Tool**: Direct C++ compilation (no CMake/build system configuration)
 - **Standard**: C++20
-- **Output**: Single executable `C___Advance_Course.exe` in `cmake-build-debug/`
+- **Output**: Individual `.exe` files in project root (one per `.cpp` file)
 
-### Build Commands (CLion)
-```
-# Using CMake directly (Windows PowerShell)
-cmake -B cmake-build-debug -DCMAKE_BUILD_TYPE=Debug
-cmake --build cmake-build-debug
-./cmake-build-debug/C___Advance_Course.exe
+### Build & Run Commands (CLion)
+```powershell
+# CLion: Right-click any .cpp file → Run (auto-compiles and executes)
+# Or use keyboard shortcut: Ctrl+Shift+F10
+
+# Command-line compilation (Windows PowerShell):
+g++ -std=c++20 -o FunctionTemplate.exe FunctionTemplate.cpp
+./FunctionTemplate.exe
 ```
 
 ### Rebuild After Changes
-- CLion auto-detects CMakeLists.txt changes
-- Modify `CMakeLists.txt` if adding/removing `.cpp` files
-- Update `CMAKE_CXX_STANDARD` if using features requiring newer C++ version
+- CLion auto-compiles on execution (Ctrl+Shift+F10)
+- Each `.cpp` file is a standalone, self-contained example with its own `main()`
+- No build configuration needed; just edit, save, and run
 
 ## Project Structure
 
 ```
-C++ Advance Course/
-├── CMakeLists.txt          # Build configuration (edit to add files)
-├── main.cpp                # Entry point (currently demonstrates bit shift operator)
-├── cmake-build-debug/      # Build artifacts (auto-generated)
-└── .git/                   # Version control
+C-Course/
+├── AGENTS.md                         # This file - AI coding agent guide
+├── main.cpp                          # Entry point (currently empty)
+├── CMakeLists.txt                    # [REMOVED - no longer used]
+│
+├── Fundamental Concepts
+│   ├── Referencing.cpp               # Reference variables and their behavior
+│   ├── DynamicMemoryAlloction.cpp    # new/delete, pointer lifecycle
+│   ├── pointerArithmatic.cpp         # Pointer arithmetic and operations
+│   ├── PassByAddressandReference.cpp # Function parameter passing methods
+│
+├── Strings & Text Processing
+│   ├── strings.cpp                   # C-style string manipulation
+│   ├── ReadingWritingString.cpp      # Input/output for strings
+│   ├── stringClass.cpp               # std::string class usage
+│   ├── stringConCat.cpp              # String concatenation methods
+│   ├── strcopy.cpp                   # Safe string copying
+│
+├── Language Features & Advanced Topics
+│   ├── Enum&Typedef.cpp              # Enumerations and type definitions
+│   ├── FunctionOverLoading.cpp       # Function overloading patterns
+│   ├── FunctionTemplate.cpp          # Template functions (generic programming)
+│   ├── ForEachLoop.cpp               # Range-based for loops
+│   ├── MultipicationMatrix.cpp       # Multi-dimensional arrays
+│
+├── .git/                             # Version control
+└── .idea/                            # CLion IDE configuration
 ```
+
+**Note**: Each `.cpp` file is a standalone, compiled example. All outputs are `.exe` files in the project root.
 
 ## Code Patterns & Conventions
 
