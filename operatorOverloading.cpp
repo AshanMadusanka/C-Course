@@ -10,6 +10,7 @@ private:
 public:
     Complex(int real = 0, int imag = 0);
     friend Complex operator+(Complex c1, Complex c2);
+    friend ostream& operator<<(ostream& os, Complex c);
      void Display();
 
 };
@@ -24,6 +25,11 @@ void Complex::Display() {
     cout<<real<<"+i"<<imag<<endl;
 }
 
+ostream &operator<<(ostream &os, Complex c) {
+    cout<<c.real<<"+i"<<c.imag<<endl;
+    return os;
+}
+
 Complex operator+(Complex c1, Complex c2) {
     Complex result;
     result.real = c1.real + c2.real;
@@ -35,7 +41,9 @@ int main() {
   Complex c1{3,4}, c2{5,6};
     Complex c3;
     c3 = c1 + c2;
-    c3.Display();
+    cout << c3;
+    cout << c1;
+    cout << c2;
 
 
 
