@@ -16,7 +16,10 @@ class Employee {
     int getEmployeeId();
     string getName();
     int getAge();
+    virtual int getWage() =0;
     virtual ~Employee();
+
+    //int getWage();
 };
 
 class FullTimeEmployee : public Employee {
@@ -47,12 +50,17 @@ class PartTimeEmployee : public Employee {
 
 int main() {
 
-    FullTimeEmployee emp{2000,"Ashan",29,23};
-    cout << emp.getSalary() << endl;
-    cout << emp.getName() << endl;
-    emp.setSalary(300);
-    cout << emp.getSalary() << endl;
-    cout << emp.getName() << endl;
+   // FullTimeEmployee emp{2000,"Ashan",29,23};
+    Employee *empptr = new PartTimeEmployee(3000,"Tharindu",30,90);
+    cout<< empptr->getWage()<<endl;
+
+
+    // cout << emp.getSalary() << endl;
+    // cout << emp.getName() << endl;
+    // emp.setSalary(300);
+    // cout << emp.getSalary() << endl;
+    // cout << emp.getName() << endl;
+
 
     return 0;
 }
@@ -97,7 +105,7 @@ Employee::~Employee() = default;
 
 FullTimeEmployee::FullTimeEmployee() {
     salary = 0;
-    age =10;
+    //age =10;
 }
 
 FullTimeEmployee::FullTimeEmployee(int salary, string name, int age, int employeeId):Employee(employeeId, name, age) {
@@ -136,4 +144,4 @@ int PartTimeEmployee::getWage() {
     return wage;
 }
 
-PartTimeEmployee::~PartTimeEmployee()= default;
+PartTimeEmployee::~PartTimeEmployee()= default; // = default -> Tells the compiler to generate default implementation for this by yourself
